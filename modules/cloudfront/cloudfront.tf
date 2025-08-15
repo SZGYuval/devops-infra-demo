@@ -1,6 +1,8 @@
-resource "aws_cloudfront_cache_policy" "use_origin_cache_headers" {
+resource "aws_cloudfront_cache_policy" "disable_cache" {
   name = "use-origin-cache-headers"
-
+  default_ttl = 0
+  max_ttl = 0
+  min_ttl = 0
   parameters_in_cache_key_and_forwarded_to_origin {
     cookies_config {
       cookie_behavior = "none"
@@ -35,7 +37,7 @@ resource "aws_cloudfront_distribution" "application_load_balancer_distribution" 
   default_cache_behavior {
     target_origin_id = var.origin_name
     viewer_protocol_policy = "redirect-to-https"
-    cache_policy_id = aws_cloudfront_cache_policy.use_origin_cache_headers.id
+    cache_policy_id = aws_cloudfront_cache_policy.disable_cache.id
     allowed_methods = var.allowed_methods
     cached_methods = var.cached_methods
   }
