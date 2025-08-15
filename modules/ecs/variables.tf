@@ -45,7 +45,7 @@ variable "container_port" {
 variable "desired_count" {
   description = "amount of containers for the application"
   type = number
-  default = 2
+  default = 1
 }
 
 variable "health_check_path" {
