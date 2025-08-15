@@ -39,7 +39,7 @@ variable "container_name" {
 variable "container_port" {
   description = "port that the container will listen on"
   type = number
-  default = 8000
+  default = 80
 }
 
 variable "desired_count" {
