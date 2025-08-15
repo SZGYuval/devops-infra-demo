@@ -22,7 +22,7 @@ resource "aws_ecs_task_definition" "application_task_defenition" {
   container_definitions = jsonencode([
     {
       name      = var.container_name
-      image     = "${var.ecr_repo_url}:latest"
+      image     = "${var.ecr_repo_url}:7.0.6"
       cpu       = 256
       memory    = 512
       essential = true
