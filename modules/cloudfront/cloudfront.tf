@@ -1,5 +1,5 @@
 resource "aws_cloudfront_cache_policy" "disable_cache" {
-  name = "use-origin-cache-headers"
+  name = "custom-disable-cache"
   default_ttl = 0
   max_ttl = 0
   min_ttl = 0
